@@ -22,7 +22,7 @@ function addActionsButtons(actionsArea) {
   downloadImgButton.setAttribute('share-ext', 'true')
   downloadImgButton.innerText = 'Generate PNG'
   downloadImgButton.onclick = () => {
-    downloadThread({ as: Format.PDF })
+    downloadThread({ as: Format.PNG })
   }
   actionsArea.appendChild(downloadImgButton)
 
