@@ -89,14 +89,12 @@ class Elements {
     this.init()
   }
   init() {
-    this.spacer = document.querySelector('.w-full.h-48.flex-shrink-0')
-    this.thread = document.querySelector(
-      "[class*='react-scroll-to-bottom']>[class*='react-scroll-to-bottom']>div"
+    this.spacer = document.querySelector('.w-full.h-32.md\\:h-48.flex-shrink-0')
+    this.thread = document.querySelector('main>div.flex-1>div>div')
+    this.feedback = this.thread.querySelectorAll(
+      'div>div.text-base>div:nth-of-type(2)>div:nth-of-type(2)'
     )
     this.positionForm = document.querySelector('form').parentNode
-    this.scroller = Array.from(
-      document.querySelectorAll('[class*="react-scroll-to"]')
-    ).filter((el) => el.classList.contains('h-full'))[0]
     this.hiddens = Array.from(document.querySelectorAll('.overflow-hidden'))
     this.images = Array.from(document.querySelectorAll('img[srcset]'))
   }
@@ -108,8 +106,10 @@ class Elements {
     this.thread.style.maxWidth = '960px'
     this.thread.style.marginInline = 'auto'
     this.positionForm.style.display = 'none'
-    this.scroller.classList.remove('h-full')
-    this.scroller.style.minHeight = '100vh'
+    this.feedback.forEach((item) => {
+      item.style.display = 'none'
+    })
+
     this.images.forEach((img) => {
       const srcset = img.getAttribute('srcset')
       img.setAttribute('srcset_old', srcset)
@@ -126,8 +126,10 @@ class Elements {
     this.thread.style.maxWidth = null
     this.thread.style.marginInline = null
     this.positionForm.style.display = null
-    this.scroller.classList.add('h-full')
-    this.scroller.style.minHeight = null
+    this.feedback.forEach((item) => {
+      item.style.display = null
+    })
+
     this.images.forEach((img) => {
       const srcset = img.getAttribute('srcset_old')
       img.setAttribute('srcset', srcset)
