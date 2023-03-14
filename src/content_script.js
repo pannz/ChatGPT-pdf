@@ -26,7 +26,7 @@ function addActionsButtons(actionsArea) {
   }
   actionsArea.appendChild(downloadImgButton)
 
-  const downloadPdfButton = TryAgainButton.cloneNode(true)
+  const downloadPdfButton = button.cloneNode(true)
   downloadPdfButton.id = 'download-pdf-button'
   downloadPdfButton.setAttribute('share-ext', 'true')
   downloadPdfButton.innerText = 'Download PDF'
